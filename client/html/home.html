@@ -1,79 +1,58 @@
 <template name="home">
   <div class="container">
-    
+    {{#if isAllChecked}}
     <div class="row">
-    
-    <!-- Start of EIT -->
-    <div class="col l3 m6 s12">
-      <div class="card">
-        <div class="card-image">
-          <img src="avatar.png">
-          <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">delete</i></a>
-        </div>
-        <div class="card-content">
-          <p>First Name Surname comes from Kigali and is 9 years old.</p>
-        </div>
-      </div>
+      <button class="btn red waves-effect">Delete Selected</button>
     </div>
-    <!-- End of EIT -->
+    {{else}}
+    {{/if}}
+    <div class="row">
+      <table class="striped">
+        <thead>
+          <tr>
+            <th class="valign-wrapper">
+              <input type="checkbox" class="filled-in checkbox-pink" id="all" />
+              <label for="all"></label>
+            </th>
+            <!-- <th>#</th> -->
+            <th>First Name</th>
+            <th>Surname</th>
+            <th>Age</th>
+            <th>Country</th>
+            {{#if currentUser}}
+            <th>Actions</th>
+            {{else}}
+            {{/if}}
+          </tr>
+        </thead>
 
-    <!-- Start of EIT -->
-    <div class="col l3 m6 s12">
-        <div class="card">
-          <div class="card-image">
-            <img src="avatar.png">
-            <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">delete</i></a>
-          </div>
-          <div class="card-content">
-            <p>First Name Surname comes from Kigali and is 9 years old.</p>
-          </div>
-        </div>
-      </div>
-      <!-- End of EIT -->
-
-      <!-- Start of EIT -->
-    <div class="col l3 m6 s12">
-        <div class="card">
-          <div class="card-image">
-            <img src="avatar.png">
-            <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">delete</i></a>
-          </div>
-          <div class="card-content">
-            <p>First Name Surname comes from Kigali and is 9 years old.</p>
-          </div>
-        </div>
-      </div>
-      <!-- End of EIT -->
-
-      <!-- Start of EIT -->
-    <div class="col l3 m6 s12">
-        <div class="card">
-          <div class="card-image">
-            <img src="avatar.png">
-            <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">delete</i></a>
-          </div>
-          <div class="card-content">
-            <p>First Name Surname comes from Kigali and is 9 years old.</p>
-          </div>
-        </div>
-      </div>
-      <!-- End of EIT -->
-
-      <!-- Start of EIT -->
-    <div class="col l3 m6 s12">
-        <div class="card">
-          <div class="card-image">
-            <img src="avatar.png">
-            <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">delete</i></a>
-          </div>
-          <div class="card-content">
-            <p>First Name Surname comes from Kigali and is 9 years old.</p>
-          </div>
-        </div>
-      </div>
-      <!-- End of EIT -->
-
-  </div>
-
+        <tbody>
+          {{#each eits}}
+          <tr>
+            <td class="valign-wrapper">
+              {{#if isAllChecked}}
+              <input type="checkbox" class="eit-check filled-in checkbox-pink" checked id="{{_id}}"/>
+              {{else}}
+              <input type="checkbox" class="eit-check filled-in checkbox-pink" id="{{_id}}"/>
+              {{/if}}
+              <label for="{{_id}}"></label>
+            </td>
+            <!-- <td>{{@index}}</td> -->
+            <td>{{firstname}}</td>
+            <td>{{surname}}</td>
+            <td>{{age}}</td>
+            <td>{{country}}</td>
+            {{#if currentUser}}
+            <td>
+              <a href="/eits/{{_id}}/edit"><i class="material-icons edit-eit">edit</i></a>
+              <i class="material-icons red-text delete-eit">delete</i>
+            </td>
+            {{else}}
+            {{/if}}
+          </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    </div>
   </div>
 </template>
