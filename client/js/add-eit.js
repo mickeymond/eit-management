@@ -1,6 +1,8 @@
 import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
 
+import '../html/add-eit.html';
+
 // Templates Events
 Template.add_eit.events({
   "submit #add-eit": function(e) {

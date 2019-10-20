@@ -1,6 +1,8 @@
 import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
 
+import '../html/edit-eit.html';
+
 // Templates Events
 Template.edit_eit.events({
   "submit #edit-eit": function(e) {

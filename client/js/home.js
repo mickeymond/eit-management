@@ -4,6 +4,8 @@ import { ReactiveVar } from 'meteor/reactive-var'
 
 import EITs from '../../lib/collections/eits';
 
+import '../html/home.html';
+
 Template.home.onCreated(function bodyOnCreated() {
   // this.isAllChecked = new ReactiveVar(false);
   this.checkedEITs = new ReactiveVar([]);
