@@ -5,7 +5,7 @@ import { ReactiveVar } from 'meteor/reactive-var'
 import EITs from '../../lib/collections/eits';
 
 Template.home.onCreated(function bodyOnCreated() {
-  this.isAllChecked = new ReactiveVar(false);
+  // this.isAllChecked = new ReactiveVar(false);
   this.checkedEITs = new ReactiveVar([]);
 });
 
@@ -15,9 +15,9 @@ Template.home.helpers({
     return EITs.find({});
   },
 
-  isAllChecked() {
+  isSomeChecked() {
     const instance = Template.instance();
-    return instance.isAllChecked.get();
+    return instance.checkedEITs.get().length !== 0;
   }
 });
 
@@ -30,16 +30,16 @@ Template.home.events({
     Meteor.call('eits.delete', this._id);
   },
 
-  "change #all": function(e, instance) {
-    // Prevent Default Action
-    e.preventDefault();
+  // "change #all": function(e, instance) {
+  //   // Prevent Default Action
+  //   e.preventDefault();
 
-    if (e.target.checked) {
-      instance.isAllChecked.set(true);
-    } else {
-      instance.isAllChecked.set(false);
-    }
-  },
+  //   if (e.target.checked) {
+  //     instance.isAllChecked.set(true);
+  //   } else {
+  //     instance.isAllChecked.set(false);
+  //   }
+  // },
 
   "change .eit-check": function(e, instance) {
     // Prevent Default Action
@@ -53,6 +53,14 @@ Template.home.events({
       instance.checkedEITs.set(oldEitIds.filter(each => each !== e.target.id));
     }
 
-    console.log(instance.checkedEITs.get());
+    // console.log(instance.checkedEITs.get());
+  },
+
+  "click #delete-checked": function(e, instance) {
+    // Prevent Default Action
+    e.preventDefault();
+
+    // Perform Bulk Delete
+    Meteor.call('eits.bulk_delete', instance.checkedEITs.get());
   }
 });
