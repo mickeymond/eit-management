@@ -62,5 +62,8 @@ Template.home.events({
 
     // Perform Bulk Delete
     Meteor.call('eits.bulk_delete', instance.checkedEITs.get());
+
+    // Reset the state of checkedEITs
+    instance.checkedEITs.set([]);
   }
 });
