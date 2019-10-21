@@ -10,10 +10,13 @@
       <table class="striped">
         <thead>
           <tr>
+            {{#if currentUser}}
             <th class="valign-wrapper">
               <!-- <input type="checkbox" class="filled-in checkbox-pink" id="all" />
               <label for="all"></label> -->
             </th>
+            {{else}}
+            {{/if}}
             <th>First Name</th>
             <th>Surname</th>
             <th>Age</th>
@@ -28,10 +31,13 @@
         <tbody>
           {{#each eits}}
           <tr>
+            {{#if currentUser}}
             <td class="valign-wrapper">
               <input type="checkbox" class="eit-check filled-in checkbox-pink" id="{{_id}}"/>
               <label for="{{_id}}"></label>
             </td>
+            {{else}}
+            {{/if}}
             <td>{{firstname}}</td>
             <td>{{surname}}</td>
             <td>{{age}}</td>
