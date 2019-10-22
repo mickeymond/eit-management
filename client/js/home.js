@@ -20,6 +20,10 @@ Template.home.helpers({
   isSomeChecked() {
     const instance = Template.instance();
     return instance.checkedEITs.get().length !== 0;
+  },
+
+  isMentor() {
+    return (Meteor.user() && (Meteor.userId() === this.mentor));
   }
 });
 
