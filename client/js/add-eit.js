@@ -19,7 +19,7 @@ Template.add_eit.events({
     Meteor.call('eits.insert', firstname, surname, +age, country);
 
     // Naviaget to Home
-    Router.go('/');
+    FlowRouter.go('/');
   }
   
 });

@@ -25,4 +25,5 @@ simonhochrein:material-icons
 accounts-ui
 accounts-password
 
-iron:router
+kadira:flow-router
+kadira:blaze-layout
