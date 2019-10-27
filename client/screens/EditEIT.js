@@ -13,19 +13,19 @@ class EditEIT extends React.Component {
           <form className="col s10" autoComplete="off">
             <div className="row">
               <div className="input-field col s6">
-                <input name="firstname" type="text" className="validate" required value="" />
+                <input name="firstname" type="text" className="validate" required defaultValue="" />
                 <label className="active" htmlFor="firstname">First Name</label>
               </div>
               <div className="input-field col s6">
-                <input name="surname" type="text" className="validate" required value="" />
+                <input name="surname" type="text" className="validate" required defaultValue="" />
                 <label className="active" htmlFor="surname">Surname</label>
               </div>
               <div className="input-field col s6">
-                <input name="age" type="number" className="validate" required value="" />
+                <input name="age" type="number" className="validate" required defaultValue="" />
                 <label className="active" htmlFor="age">Age</label>
               </div>
               <div className="input-field col s6">
-                <input name="country" type="text" className="validate" required value="" />
+                <input name="country" type="text" className="validate" required defaultValue="" />
                 <label className="active" htmlFor="country">Country</label>
               </div>
             </div>
@@ -38,3 +38,5 @@ class EditEIT extends React.Component {
     );
   }
 }
+
+export default EditEIT;

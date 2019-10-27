@@ -27,4 +27,5 @@ accounts-password
 static-html
 
 kadira:flow-router
-#kadira:react-layout
+
+react-meteor-data

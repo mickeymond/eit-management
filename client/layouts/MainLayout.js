@@ -1,4 +1,8 @@
 import React from 'react';
+import { Meteor } from 'meteor/meteor';
+import { withTracker } from 'meteor/react-meteor-data';
+
+import AccountsUIWrapper from '../components/AccountsUIWrapper';
 
 class MainLayout extends React.Component {
   render() {
@@ -9,8 +13,8 @@ class MainLayout extends React.Component {
             <div className="nav-wrapper">
               <a href="/" className="brand-logo">EIT Management</a>
               <ul id="nav-mobile" className="right hide-on-med-and-down">
-                <li><a href="/eits/add">Add EIT</a></li>
-                <li><a href="#">Login Button</a></li>
+                {this.props.currentUser ? <li><a href="/eits/add">Add EIT</a></li> : ''}
+                <li><a href="#"><AccountsUIWrapper /></a></li>
               </ul>
             </div>
           </div>
@@ -24,4 +28,8 @@ class MainLayout extends React.Component {
   }
 }
 
-export default MainLayout;
+export default withTracker(props => {
+  return {
+    currentUser: Meteor.user()
+  }
+})(MainLayout);
