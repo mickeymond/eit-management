@@ -1,0 +1,8 @@
+1. Can add EIT if Authenticated
+2. Cannot add EIT if not Authenticated
+3. Can edit own EIT
+4. Cannot edit someone's EIT
+5. Can delete own EIT
+6. Cannot delete someone's EIT
+7. Can bulk delete own EITs
+8. Cannot bulk delete someone's EITs
