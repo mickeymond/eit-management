@@ -27,3 +27,4 @@ accounts-password
 
 kadira:flow-router
 kadira:blaze-layout
+meteortesting:mocha
