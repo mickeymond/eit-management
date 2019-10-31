@@ -1,8 +1,11 @@
-1. Can add EIT if Authenticated
-2. Cannot add EIT if not Authenticated
-3. Can edit own EIT
-4. Cannot edit someone's EIT
-5. Can delete own EIT
-6. Cannot delete someone's EIT
-7. Can bulk delete own EITs
-8. Cannot bulk delete someone's EITs
+Application Test Cases
+
+1. Can view EITs
+2. Can add if logged in EIT
+3. Cannot add EIT if not logged in
+4. Can edit own EIT
+5. Cannot edit someone's EIT
+6. Can delete own EIT
+7. Cannot delete EIT if not logged in
+8. Cannot edit someone's EIT
+9. Cannot delete someone's EIT
