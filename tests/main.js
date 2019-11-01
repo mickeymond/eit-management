@@ -1,6 +1,6 @@
 import assert from "assert";
 
-import '../lib/collections/eits.test';
+import '../lib/methods/eits.test';
 
 describe("eit-management", function () {
   it("package.json has correct name", async function () {
