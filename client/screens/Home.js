@@ -10,12 +10,28 @@ class Home extends React.Component {
     checkedEITs: []
   }
 
-  deleteEIT(id) {
+  deleteEIT = (id) => {
     Meteor.call('eits.delete', id);
   }
 
-  handleChecked(e) {
-    console.log(e.target.value);
+  handleChecked = (e) => {
+    let id = e.target.id;
+    let newValue;
+    if (e.target.checked) {
+      newValue = [...this.state.checkedEITs, id];
+    } else {
+      newValue = [...this.state.checkedEITs.filter(x => x !== id)];
+    }
+    
+    // Update the state
+    this.setState((state, props) => ({ checkedEITs: newValue }));
+  }
+
+  handleBulkDelete = (e) => {
+    Meteor.call('eits.bulk_delete', this.state.checkedEITs);
+
+    // Update the state
+    this.setState((state, props) => ({ checkedEITs: [] }));
   }
 
   renderEITs() {
@@ -24,7 +40,7 @@ class Home extends React.Component {
         <tr key={_id}>
             {this.props.currentUser && this.props.currentUser._id === mentor ?
             <td className="valign-wrapper">
-              <input type="checkbox" className="filled-in checkbox-pink" />
+              <input type="checkbox" className="filled-in checkbox-pink" id={_id} onChange={this.handleChecked} />
               <label htmlFor={_id}></label>
             </td> :
             <td></td>}
@@ -48,7 +64,7 @@ class Home extends React.Component {
       <div className="container">
         {this.state.checkedEITs.length > 0 ?
         <div className="row">
-          <button className="btn red waves-effect">Delete Selected</button>
+          <button className="btn red waves-effect" onClick={this.handleBulkDelete}>Delete Selected</button>
         </div> :
         ''}
         <div className="row">
